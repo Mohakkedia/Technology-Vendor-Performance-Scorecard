@@ -1,0 +1,21 @@
+vendor_id,vendor_name,category,annual_budget,relationship_owner,avg_sla_compliance_pct,avg_on_time_delivery_pct,total_incidents,total_critical_incidents,total_actual_cost,total_budgeted_cost,cost_variance_pct,sla_score,delivery_score,incident_score,cost_score,composite_score,tier,tier_override_reason
+VND001,Amazon Web Services,Cloud Infrastructure,2400000.0,J. Alvarez,97.4,96.6,2,0,2382479.0,2400000.0,-0.7,97.4,96.6,84,97.2,93.8,Strategic,
+VND013,Workday,SaaS-HR,610000.0,J. Alvarez,96.1,95.8,2,0,617606.0,610000.0,1.2,96.1,95.8,84,95.2,92.8,Strategic,
+VND005,CrowdStrike,Security,680000.0,M. Kim,97.0,95.7,5,0,687592.0,680000.0,1.1,97.0,95.7,60,95.6,87.1,Strategic,
+VND003,Google Cloud Platform,Cloud Infrastructure,950000.0,S. Patel,92.1,90.1,5,0,977016.0,950000.0,2.8,92.1,90.1,60,88.8,82.9,Strategic,
+VND002,Microsoft Azure,Cloud Infrastructure,1800000.0,T. Osei,93.0,89.7,4,1,1799755.0,1800000.0,-0.0,93.0,89.7,48,100.0,82.3,Strategic,
+VND009,Cisco Systems,Network,890000.0,T. Osei,92.1,89.9,6,0,902055.0,890000.0,1.4,92.1,89.9,52,94.4,82.0,Strategic,
+VND016,NetSuite,SaaS-Finance,520000.0,J. Alvarez,93.0,89.4,3,0,598644.0,520000.0,15.1,93.0,89.4,76,39.6,77.2,Monitor,
+VND007,Okta,Security,310000.0,S. Patel,92.9,90.5,7,1,309295.0,310000.0,-0.2,92.9,90.5,24,99.2,76.3,Monitor,
+VND017,SAP Concur,SaaS-Finance,290000.0,S. Patel,93.9,91.4,10,0,297068.0,290000.0,2.4,93.9,91.4,20,90.4,74.1,Monitor,
+VND006,Palo Alto Networks,Security,560000.0,S. Patel,94.6,92.8,12,0,577809.0,560000.0,3.2,94.6,92.8,4,87.2,70.0,Monitor,
+VND014,ADP,SaaS-HR,380000.0,S. Patel,92.6,90.5,13,0,385166.0,380000.0,1.4,92.6,90.5,0,94.4,69.3,Monitor,
+VND008,SentinelOne,Security,240000.0,J. Alvarez,89.3,89.7,23,6,241959.0,240000.0,0.8,89.3,89.7,0,96.8,68.6,Replace,3+ critical incidents (auto-Replace override)
+VND020,Cognizant,Managed Services,980000.0,T. Osei,88.6,88.5,27,7,984967.0,980000.0,0.5,88.6,88.5,0,98.0,68.3,Replace,3+ critical incidents (auto-Replace override)
+VND011,Zscaler,Network,350000.0,S. Patel,91.4,89.4,7,0,405782.0,350000.0,15.9,91.4,89.4,44,36.4,68.0,Monitor,
+VND019,Accenture Managed Services,Managed Services,1450000.0,T. Osei,88.4,85.6,17,2,1450956.0,1450000.0,0.1,88.4,85.6,0,99.6,67.8,Monitor,
+VND010,Juniper Networks,Network,410000.0,S. Patel,85.2,86.5,19,1,401939.0,410000.0,-2.0,85.2,86.5,0,92.0,65.6,Monitor,
+VND015,Greenhouse Software,SaaS-HR,145000.0,M. Kim,86.8,84.7,16,0,150519.0,145000.0,3.8,86.8,84.7,0,84.8,64.2,Monitor,
+VND018,Coupa Software,SaaS-Finance,260000.0,S. Patel,76.7,76.0,26,1,267284.0,260000.0,2.8,76.7,76.0,0,88.8,59.8,Replace,
+VND012,Verizon Business,Network,720000.0,M. Kim,77.5,74.3,20,5,740624.0,720000.0,2.9,77.5,74.3,0,88.4,59.5,Replace,3+ critical incidents (auto-Replace override)
+VND004,Rackspace Managed Cloud,Cloud Infrastructure,420000.0,J. Alvarez,77.8,75.1,26,4,435199.0,420000.0,3.6,77.8,75.1,0,85.6,59.2,Replace,3+ critical incidents (auto-Replace override)

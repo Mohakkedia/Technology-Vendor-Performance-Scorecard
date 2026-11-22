@@ -1,0 +1,116 @@
+// vendor_scorecard_measures.dax
+// --------------------------------
+// DAX measures for the Vendor Performance Scorecard Power BI report.
+// Paste each into a new measure (right-click VendorMonthlyMetrics in the
+// Fields pane -> New measure) after the Power Query queries in
+// vendor_scorecard_powerquery.m are loaded and the Vendors <-> Metrics
+// relationship is built in Model view.
+//
+// These implement the exact same weighted-scoring logic as
+// scripts/build_scorecard.py and sql/scorecard_queries.sql — three
+// independent implementations of one documented formula, matching on
+// purpose so a reviewer can cross-check any of them against the others.
+
+Avg SLA Compliance % =
+AVERAGE ( VendorMonthlyMetrics[sla_compliance_pct] )
+
+Avg On-Time Delivery % =
+AVERAGE ( VendorMonthlyMetrics[on_time_delivery_pct] )
+
+Total Incidents =
+SUM ( VendorMonthlyMetrics[incident_count] )
+
+Total Critical Incidents =
+SUM ( VendorMonthlyMetrics[critical_incident_count] )
+
+Total Actual Cost =
+SUM ( VendorMonthlyMetrics[actual_cost] )
+
+Total Budgeted Cost =
+SUM ( VendorMonthlyMetrics[budgeted_cost] )
+
+Cost Variance % =
+DIVIDE (
+    [Total Actual Cost] - [Total Budgeted Cost],
+    [Total Budgeted Cost]
+) * 100
+
+SLA Score =
+[Avg SLA Compliance %]
+
+Delivery Score =
+[Avg On-Time Delivery %]
+
+Incident Score =
+MAX (
+    0,
+    100 - ( [Total Incidents] * 8 ) - ( [Total Critical Incidents] * 20 )
+)
+
+Cost Score =
+MAX (
+    0,
+    100 - ( ABS ( [Cost Variance %] ) * 4 )
+)
+
+Composite Score =
+( 0.30 * [SLA Score] )
+    + ( 0.25 * [Delivery Score] )
+    + ( 0.25 * [Incident Score] )
+    + ( 0.20 * [Cost Score] )
+
+Vendor Tier =
+VAR Score = [Composite Score]
+VAR CriticalIncidents = [Total Critical Incidents]
+RETURN
+    SWITCH (
+        TRUE (),
+        CriticalIncidents >= 3, "Replace",
+        Score >= 80, "Strategic",
+        Score >= 60, "Monitor",
+        "Replace"
+    )
+
+// Tier sort order, for a slicer/legend that reads Strategic -> Monitor ->
+// Replace instead of alphabetically (Monitor, Replace, Strategic)
+Vendor Tier Sort Order =
+SWITCH (
+    [Vendor Tier],
+    "Strategic", 1,
+    "Monitor", 2,
+    "Replace", 3,
+    4
+)
+
+// Conditional-formatting helper: a hex color per tier, bindable directly
+// to a visual's "Format by field" color rule
+Tier Color =
+SWITCH (
+    [Vendor Tier],
+    "Strategic", "#2E7D32",
+    "Monitor", "#B7791F",
+    "Replace", "#C0392B",
+    "#808080"
+)
+
+// KPI card measures for the report's summary page
+Vendor Count = DISTINCTCOUNT ( Vendors[vendor_id] )
+
+Strategic Vendor Count =
+CALCULATE ( [Vendor Count], FILTER ( VALUES ( Vendors[vendor_id] ), [Vendor Tier] = "Strategic" ) )
+
+Replace Vendor Count =
+CALCULATE ( [Vendor Count], FILTER ( VALUES ( Vendors[vendor_id] ), [Vendor Tier] = "Replace" ) )
+
+Avg Composite Score (All Vendors) =
+AVERAGEX ( VALUES ( Vendors[vendor_id] ), [Composite Score] )
+
+// Month-over-month SLA trend, for a line chart against DimDate
+SLA Compliance % (Prior Month) =
+CALCULATE (
+    [Avg SLA Compliance %],
+    DATEADD ( DimDate[Date], -1, MONTH )
+)
+
+SLA Compliance % MoM Change =
+[Avg SLA Compliance %] - [SLA Compliance % (Prior Month)]

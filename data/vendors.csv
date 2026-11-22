@@ -1,0 +1,21 @@
+vendor_id,vendor_name,category,annual_budget,relationship_owner,contract_start
+VND001,Amazon Web Services,Cloud Infrastructure,2400000,J. Alvarez,2023-08-01
+VND002,Microsoft Azure,Cloud Infrastructure,1800000,T. Osei,2022-06-01
+VND003,Google Cloud Platform,Cloud Infrastructure,950000,S. Patel,2022-07-01
+VND004,Rackspace Managed Cloud,Cloud Infrastructure,420000,J. Alvarez,2023-04-01
+VND005,CrowdStrike,Security,680000,M. Kim,2020-03-01
+VND006,Palo Alto Networks,Security,560000,S. Patel,2022-11-01
+VND007,Okta,Security,310000,S. Patel,2022-02-01
+VND008,SentinelOne,Security,240000,J. Alvarez,2023-03-01
+VND009,Cisco Systems,Network,890000,T. Osei,2023-12-01
+VND010,Juniper Networks,Network,410000,S. Patel,2022-09-01
+VND011,Zscaler,Network,350000,S. Patel,2022-11-01
+VND012,Verizon Business,Network,720000,M. Kim,2021-06-01
+VND013,Workday,SaaS-HR,610000,J. Alvarez,2020-11-01
+VND014,ADP,SaaS-HR,380000,S. Patel,2022-06-01
+VND015,Greenhouse Software,SaaS-HR,145000,M. Kim,2020-04-01
+VND016,NetSuite,SaaS-Finance,520000,J. Alvarez,2022-05-01
+VND017,SAP Concur,SaaS-Finance,290000,S. Patel,2023-04-01
+VND018,Coupa Software,SaaS-Finance,260000,S. Patel,2021-02-01
+VND019,Accenture Managed Services,Managed Services,1450000,T. Osei,2020-02-01
+VND020,Cognizant,Managed Services,980000,T. Osei,2023-09-01

@@ -1,0 +1,41 @@
+{
+  "n_vendors": 20,
+  "tier_counts": {
+    "Monitor": 9,
+    "Strategic": 6,
+    "Replace": 5
+  },
+  "avg_composite_score": 73.4,
+  "total_annual_spend": 14613714,
+  "vendors_over_budget_10pct": [
+    "NetSuite",
+    "Zscaler"
+  ],
+  "vendors_flagged_replace": [
+    {
+      "vendor_name": "SentinelOne",
+      "composite_score": 68.6,
+      "tier_override_reason": "3+ critical incidents (auto-Replace override)"
+    },
+    {
+      "vendor_name": "Cognizant",
+      "composite_score": 68.3,
+      "tier_override_reason": "3+ critical incidents (auto-Replace override)"
+    },
+    {
+      "vendor_name": "Coupa Software",
+      "composite_score": 59.8,
+      "tier_override_reason": ""
+    },
+    {
+      "vendor_name": "Verizon Business",
+      "composite_score": 59.5,
+      "tier_override_reason": "3+ critical incidents (auto-Replace override)"
+    },
+    {
+      "vendor_name": "Rackspace Managed Cloud",
+      "composite_score": 59.2,
+      "tier_override_reason": "3+ critical incidents (auto-Replace override)"
+    }
+  ]
+}
